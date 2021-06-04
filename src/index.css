@@ -1,0 +1,43 @@
+@import '~normalize.css/normalize.css';
+
+:root {
+  --black: #1d1d1d;
+  --white: #ffffff;
+  --orange: #e4661e;
+  --strong-red: #D93025;
+  --orange-light: #f0894e;
+  --pink: #fff0db;
+  --yellow: #f0ad4e;
+  --yellow-light: #ffd25d;
+  --green: #49ab39;
+  --grey: #e5e5e5;
+  --grey-dark: #898989;
+  --light-grey: #e5e5e5;
+  --light-grey-darken: #16452d;
+  --tangerine: #ffcc00;
+  --reply-blue: #344955;
+  --hawkes-blue: #dadce0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--white);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+a {
+  text-decoration: none;
+}
+
+#root {
+  min-height: 100vh;
+}

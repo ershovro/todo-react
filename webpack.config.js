@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent');
+const postcssNormalize = require('postcss-normalize');
 
 module.exports = {
    mode: 'development',
@@ -25,7 +27,38 @@ module.exports = {
          },
          {
             test: /\.css$/,
+            exclude: /\.module\.css$/,
             use: ['style-loader', 'css-loader']
+         }, {
+            test: /\.module\.css$/,
+            use: [
+               'style-loader',
+               {
+                  loader: 'css-loader',
+                  options: {
+                     importLoaders: 1,
+                     modules: {
+                        getLocalIdent: getCSSModuleLocalIdent,
+                     },
+                  },
+               },
+               {
+                  loader: require.resolve('postcss-loader'),
+                  options: {
+                     ident: 'postcss',
+                     plugins: () => [
+                        require('postcss-flexbugs-fixes'),
+                        require('postcss-preset-env')({
+                           autoprefixer: {
+                              flexbox: 'no-2009',
+                           },
+                           stage: 3,
+                        }),
+                        postcssNormalize(),
+                     ]
+                  },
+               }
+            ]
          }
       ]
    },
