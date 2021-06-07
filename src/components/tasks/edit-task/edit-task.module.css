@@ -1,0 +1,28 @@
+.input {
+    width: 100%;
+    box-sizing: border-box;
+
+    flex-shrink: 1;
+
+    padding: 15px;
+
+    border: none;
+    outline: none;
+
+    font-size: 24px;
+
+    transition: color 0.5s;
+}
+
+.label {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 15px;
+
+    flex-shrink: 1;
+
+    font-size: 24px;
+
+    transition: color 0.5s;
+}

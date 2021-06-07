@@ -1,22 +1,20 @@
-import React, {useState, useRef} from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
-import IconDelete from "./icon-delete";
+import EditTask from '../edit-task';
+import IconDelete from './icon-delete';
 import IconEdit from "./icon-edit";
 import styles from './task.module.css';
 
 const Task = ({text, done}) => {
    const [editing, setEditing] = useState(false);
-   const inputElement = useRef(null);
    const blurHandler = () => {
-      setEditing(false);
+     setEditing(false);
    };
    const iconEditClickHandler = () => {
       setEditing(true);
-      inputElement.current.focus();
    };
    const iconDeleteClickHandler = () => {
-
    };
 
    return (
@@ -25,13 +23,12 @@ const Task = ({text, done}) => {
          [styles.done]: done
       })}>
          <span className={styles.checkbox}></span>
-         <input
-            ref={inputElement}
-            className={styles.input}
-            type="text"
-            value={text}
-            readOnly={!editing}
+         <EditTask
+            text={text}
+            editing={editing}
             onBlur={blurHandler}
+            inputClassName={styles.input}
+            labelClassName={styles.label}
          />
          {!editing && <span className={styles.icons}>
             <IconEdit onClick={iconEditClickHandler}/>
@@ -52,3 +49,14 @@ Task.propTypes = {
 };
 
 export default Task;
+
+
+
+/*         { editing ? <input
+            ref={inputElement}
+            className={styles.input}
+            type="text"
+            value={textValue}
+            onBlur={blurHandler}
+            onChange={changeHandler}
+         /> : <span>{textValue}</span>}*/
