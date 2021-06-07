@@ -8,7 +8,8 @@ const EditTask = ({
    text,
    placeholder,
    onBlur,
-   keyDownHandler,
+   onKeyDown,
+   onEnterPressed,
    inputClassName,
    labelClassName,
    ...props
@@ -22,6 +23,15 @@ const EditTask = ({
    }, [editing]);
    const changeHandler = (event) => {
       setTextValue(event.target.value);
+   };
+   const keyDownHandler = (event) => {
+      if (event.keyCode === 13) {
+         const result = onEnterPressed(textValue);
+
+         if (result === 'resetText') {
+            setTextValue('');
+         }
+      }
    };
 
    return (
@@ -42,7 +52,8 @@ const EditTask = ({
 EditTask.defaultProps = {
    editing: false,
    text: '',
-   placeholder: ''
+   placeholder: '',
+   onEnterPressed: f => f
 };
 
 EditTask.propTypes = {
@@ -52,7 +63,8 @@ EditTask.propTypes = {
    inputClassName: PropTypes.string,
    labelClassName: PropTypes.string,
    onBlur: PropTypes.func,
-   keyDownHandler: PropTypes.func
+   onKeyDown: PropTypes.func,
+   onEnterPressed: PropTypes.func
 };
 
 export default EditTask;

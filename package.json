@@ -18,12 +18,14 @@
   "homepage": "https://github.com/ershovro/todo-react#readme",
   "dependencies": {
     "classnames": "^2.3.1",
+    "immer": "^9.0.2",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
+    "reselect": "^4.0.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

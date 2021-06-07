@@ -8,6 +8,8 @@ import {
 
 export const addTask = (text) => ({
    type: ADD_TASK,
+   generateId: ['id'],
+   done: false,
    text
 });
 
