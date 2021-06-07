@@ -1,0 +1,19 @@
+.addTAsk {
+    width: 600px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    border-bottom: 1px solid var(--grey-dark);
+}
+
+.input {
+    padding-left: 63px;
+}
+
+.input:focus {
+    box-shadow: 0 0 2px 2px #cf7d7d;
+}

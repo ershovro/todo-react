@@ -40,7 +40,9 @@ const EditTask = ({
 };
 
 EditTask.defaultProps = {
-   editing: false
+   editing: false,
+   text: '',
+   placeholder: ''
 };
 
 EditTask.propTypes = {
