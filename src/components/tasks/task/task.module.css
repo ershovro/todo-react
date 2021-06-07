@@ -1,12 +1,14 @@
 .task {
-    width: 600px;
+    width: 100%;
     box-sizing: border-box;
 
     display: flex;
     align-items: center;
 
     position: relative;
+}
 
+.task:not(:last-child) {
     border-bottom: 1px solid var(--grey-dark);
 }
 
