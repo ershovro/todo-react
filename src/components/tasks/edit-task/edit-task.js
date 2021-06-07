@@ -33,7 +33,9 @@ const EditTask = ({
          }
       }
    };
-
+   const onBlurHandler = () => {
+      onBlur(text);
+   };
    return (
          editing ? <input
             ref={inputElement}
@@ -41,7 +43,7 @@ const EditTask = ({
             type="text"
             placeholder={placeholder}
             value={textValue}
-            onBlur={onBlur}
+            onBlur={onBlurHandler}
             onChange={changeHandler}
             onKeyDown={keyDownHandler}
             {...props}

@@ -1,20 +1,26 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
+
 import EditTask from '../edit-task';
 import IconDelete from './icon-delete';
 import IconEdit from "./icon-edit";
+import {completeTask, deleteTask, editTask} from '../../../redux/actions';
 import styles from './task.module.css';
 
-const Task = ({text, done}) => {
+const Task = ({text, done, completeTask, deleteTask, editTask}) => {
    const [editing, setEditing] = useState(false);
-   const blurHandler = () => {
+   const blurHandler = (text) => {
+      editTask(text);
      setEditing(false);
    };
    const iconEditClickHandler = () => {
       setEditing(true);
    };
-   const iconDeleteClickHandler = () => {
+   const enterPressedHandler = (text) => {
+      editTask(text);
+      setEditing(false);
    };
 
    return (
@@ -22,41 +28,41 @@ const Task = ({text, done}) => {
          [styles.editing]: editing,
          [styles.done]: done
       })}>
-         <span className={styles.checkbox}></span>
+         <span className={styles.checkbox} onClick={completeTask}></span>
          <EditTask
             text={text}
             editing={editing}
             onBlur={blurHandler}
+            onEnterPressed={enterPressedHandler}
             inputClassName={styles.input}
             labelClassName={styles.label}
          />
          {!editing && <span className={styles.icons}>
             <IconEdit onClick={iconEditClickHandler}/>
-            <IconDelete onClick={iconDeleteClickHandler}/>
+            <IconDelete onClick={deleteTask}/>
          </span>}
       </div>
    );
 };
 
 Task.defaultProps = {
-   done: false
+   done: false,
+   completeTask: f => f,
+   deleteTask: f => f
 };
 
 Task.propTypes = {
    id: PropTypes.string,
    text: PropTypes.string,
-   done: PropTypes.bool
+   done: PropTypes.bool,
+   completeTask: PropTypes.func,
+   deleteTask: PropTypes.func
 };
 
-export default Task;
+const mapDispatchToProps = (dispatch, ownProps) => ({
+   completeTask: () => dispatch(completeTask(ownProps.id, !ownProps.done)),
+   deleteTask: () => dispatch(deleteTask(ownProps.id)),
+   editTask: (text) => dispatch(editTask(ownProps.id, text))
+});
 
-
-
-/*         { editing ? <input
-            ref={inputElement}
-            className={styles.input}
-            type="text"
-            value={textValue}
-            onBlur={blurHandler}
-            onChange={changeHandler}
-         /> : <span>{textValue}</span>}*/
+export default connect(null, mapDispatchToProps)(Task);
