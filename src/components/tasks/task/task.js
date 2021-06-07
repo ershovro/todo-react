@@ -13,7 +13,7 @@ const Task = ({text, done, completeTask, deleteTask, editTask}) => {
    const [editing, setEditing] = useState(false);
    const blurHandler = (text) => {
       editTask(text);
-     setEditing(false);
+      setEditing(false);
    };
    const iconEditClickHandler = () => {
       setEditing(true);

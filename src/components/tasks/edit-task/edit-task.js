@@ -34,7 +34,7 @@ const EditTask = ({
       }
    };
    const onBlurHandler = () => {
-      onBlur(text);
+      onBlur(textValue);
    };
    return (
          editing ? <input
