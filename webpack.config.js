@@ -16,6 +16,11 @@ module.exports = {
       poll: 1000,
       ignored: /node_modules/
    },
+   devServer: {
+      contentBase: path.resolve(__dirname, 'dist'),
+      compress: true,
+      port: 9000,
+   },
    module: {
       rules: [
          {
