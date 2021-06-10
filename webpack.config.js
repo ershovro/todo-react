@@ -10,12 +10,12 @@ module.exports = {
       path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.js'
    },
-   watch: true,
-/*   watchOptions: {
+   watch: false,
+   watchOptions: {
       aggregateTimeout: 600,
       poll: 1000,
       ignored: /node_modules/
-   },*/
+   },
    devServer: {
       contentBase: path.resolve(__dirname, 'dist'),
       compress: true,
