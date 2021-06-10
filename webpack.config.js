@@ -4,18 +4,18 @@ const getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent')
 const postcssNormalize = require('postcss-normalize');
 
 module.exports = {
-   mode: 'development',
+   mode: 'production',
    entry: './src/index.js',
    output: {
       path: path.resolve(__dirname, 'dist'),
       filename: 'bundle.js'
    },
    watch: true,
-   watchOptions: {
+/*   watchOptions: {
       aggregateTimeout: 600,
       poll: 1000,
       ignored: /node_modules/
-   },
+   },*/
    devServer: {
       contentBase: path.resolve(__dirname, 'dist'),
       compress: true,
