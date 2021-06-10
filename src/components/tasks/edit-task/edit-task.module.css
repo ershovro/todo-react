@@ -18,6 +18,8 @@
     width: 100%;
     box-sizing: border-box;
 
+    white-space: pre-wrap;
+
     padding: 15px;
 
     flex-shrink: 1;

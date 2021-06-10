@@ -10,13 +10,13 @@ export const addTask = (text) => ({
    type: ADD_TASK,
    generateId: ['id'],
    done: false,
-   text
+   text: text.trim()
 });
 
 export const editTask = (id, text) => ({
    type: EDIT_TASK,
    id,
-   text
+   text: text.trim()
 });
 
 export const completeTask = (id, value) => ({

@@ -8,7 +8,6 @@ const EditTask = ({
    text,
    placeholder,
    onBlur,
-   onKeyDown,
    onEnterPressed,
    inputClassName,
    labelClassName,
@@ -55,7 +54,8 @@ EditTask.defaultProps = {
    editing: false,
    text: '',
    placeholder: '',
-   onEnterPressed: f => f
+   onEnterPressed: f => f,
+   onBlur: f => f
 };
 
 EditTask.propTypes = {
@@ -65,7 +65,6 @@ EditTask.propTypes = {
    inputClassName: PropTypes.string,
    labelClassName: PropTypes.string,
    onBlur: PropTypes.func,
-   onKeyDown: PropTypes.func,
    onEnterPressed: PropTypes.func
 };
 

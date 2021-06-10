@@ -8,7 +8,9 @@ import styles from './add-task.module.css';
 
 const AddTask = ({addTask}) => {
    const enterPressedHandler = (textValue) => {
-      addTask(textValue);
+      if (textValue) {
+         addTask(textValue);
+      }
 
       return 'resetText';
    };
